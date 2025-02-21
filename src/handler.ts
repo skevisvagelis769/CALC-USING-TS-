@@ -1,4 +1,3 @@
-//this is the handler
 import { addition,multi,diff,div } from "./calc.js";
     let num1 = document.getElementById("n1") as HTMLInputElement;
     let num2 = document.getElementById("n2") as HTMLInputElement;
@@ -49,7 +48,7 @@ import { addition,multi,diff,div } from "./calc.js";
                 const wrongop = document.getElementById("wrong_op") as HTMLInputElement
                 const msg1: string = "Wrong Operation!"
                 wrongop.textContent = msg1;
-                //wait(3000);
+                
             } 
         }
     });
@@ -59,7 +58,7 @@ import { addition,multi,diff,div } from "./calc.js";
     function printres(a:number){
         console.log(a.toString())
         const a_: string = a.toString();
-        messageElement.textContent = a_; // Set the paragraph text
+        messageElement.textContent = a_; 
     }
     function wait(a:number){
         setTimeout(function(){
