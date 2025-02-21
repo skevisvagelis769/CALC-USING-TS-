@@ -1,5 +1,8 @@
 import { addition, multi, diff, div } from "./calc.js";
 let num1 = document.getElementById("n1");
+let num2_ = document.getElementById("n2");
+let num3 = document.getElementById("n3");
+EventList(num1);
 let num2 = document.getElementById("n2");
 let oper = document.getElementById("op");
 const messageElement = document.getElementById("message");
@@ -54,6 +57,12 @@ btn.addEventListener("click", () => {
 nxt.addEventListener('click', () => {
     wait(1);
 });
+//=====================================================================FUNCS=====================================================================
+function EventList(val) {
+    val.addEventListener("click", () => {
+        console.log(val.value);
+    });
+}
 function printres(a) {
     console.log(a.toString());
     const a_ = a.toString();

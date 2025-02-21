@@ -1,5 +1,10 @@
 import { addition,multi,diff,div } from "./calc.js";
-    let num1 = document.getElementById("n1") as HTMLInputElement;
+    let num1 = document.getElementById("n1") as HTMLButtonElement;
+    let num2_ = document.getElementById("n2") as HTMLButtonElement;
+    let num3 = document.getElementById("n3") as HTMLButtonElement;
+    EventList(num1)
+    
+    
     let num2 = document.getElementById("n2") as HTMLInputElement;
     let oper = document.getElementById("op") as HTMLInputElement;
     const messageElement = document.getElementById("message") as HTMLParagraphElement;
@@ -7,6 +12,7 @@ import { addition,multi,diff,div } from "./calc.js";
     const btn = document.getElementById("btn1") as HTMLButtonElement;
     const nxt = document.getElementById("btn2") as HTMLButtonElement;
     let numero1:number = parseFloat(num1.value)
+    
     let numero2:number = parseFloat(num2.value)
     let operand = oper.value
     const tests:string [] =["+","-","*","/"]
@@ -55,6 +61,13 @@ import { addition,multi,diff,div } from "./calc.js";
     nxt.addEventListener('click',() => {
         wait(1)
     })
+//=====================================================================FUNCS=====================================================================
+    function EventList(val:any){
+        val.addEventListener("click", () =>{
+            console.log(val.value)
+        })
+    }
+
     function printres(a:number){
         console.log(a.toString())
         const a_: string = a.toString();
