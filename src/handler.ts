@@ -1,4 +1,4 @@
-
+//this is the handler
 import { addition,multi,diff,div } from "./calc.js";
     let num1 = document.getElementById("n1") as HTMLInputElement;
     let num2 = document.getElementById("n2") as HTMLInputElement;
