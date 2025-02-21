@@ -48,7 +48,6 @@ btn.addEventListener("click", () => {
             const wrongop = document.getElementById("wrong_op");
             const msg1 = "Wrong Operation!";
             wrongop.textContent = msg1;
-            //wait(3000);
         }
     }
 });
@@ -58,7 +57,7 @@ nxt.addEventListener('click', () => {
 function printres(a) {
     console.log(a.toString());
     const a_ = a.toString();
-    messageElement.textContent = a_; // Set the paragraph text
+    messageElement.textContent = a_;
 }
 function wait(a) {
     setTimeout(function () {

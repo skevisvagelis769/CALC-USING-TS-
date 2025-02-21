@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <h1>ONLINE CALCULATOR</h1>                                                   
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+        <h1>ONLINE  CALCULATOR</h1>  
+    </div>
+                                                     
 
 </head>
 <body>
 
+    <div>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <label for="n1">Enter Number 1:</label>
+            <input type="text" id="n1" name="n1" placeholder="Enter the first number"><br>
+        </div>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <label for="n2">Enter Number 2:</label>
+             <input type="text" id="n2" name="n2" placeholder="Enter the second number"><br>
+        </div>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <label for="op">Enter type of operation:</label>
+            <input type="text" id="op" name="op" placeholder="Enter operation"><br>
+            <button id="btn1">Submit</button>
+            <script type="module" src="handler.js"></script>  
+            <p></p>
+            
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <label for="message">RESULTS:</label>
+            <p id="message"></p>
+            <p id="wrong_op"></p>
+            <p id="wrong_num"></p>
+            <button id="btn2">Next Operation</button>
+        </div>
+       
 
-        <label for="n1">Enter Number 1:</label>
-        <input type="text" id="n1" name="n1" placeholder="Enter the first number"><br>
-        <label for="n2">Enter Number 2:</label>
-        <input type="text" id="n2" name="n2" placeholder="Enter the second number"><br>
-        <label for="op">Enter type of operation:</label>
-        <input type="text" id="op" name="op" placeholder="Enter operation"><br>
-        <button id="btn1">Submit</button>
-        <script type="module" src="handler.js"></script>  
-        <p></p>
-        <label for="message">RESULTS:</label>
-        <p id="message"></p>
-        <p id="wrong_op"></p>
-        <p id="wrong_num"></p>
-        <button id="btn2">Next Operation</button>
-
+    </div>
+        
 
 </body>
 
