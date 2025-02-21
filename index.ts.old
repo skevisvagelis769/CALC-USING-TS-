@@ -1,0 +1,22 @@
+import express from 'express'
+//import  {GetValues} from './calc'
+import path from 'path'
+//const path = require('path');
+const app = express()
+const port = 3003
+const address = '127.0.0.2'
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+console.log(__dirname)
+app.use('/', express.static("dist"),(req: express.Request, res: express.Response) => {
+   //res.redirect('https://www.google.com')
+    res.sendFile(path.join(__dirname,'./index.html'));
+})
+
+    
+
+//GetValues()
+app.listen(port,address,() => console.log(`listening at http://${address}:${port}`)) 
