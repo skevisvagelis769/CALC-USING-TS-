@@ -1,11 +1,12 @@
 import { addition, multi, diff, div } from "./calc.js";
 let num1 = document.getElementById("n1");
-let num2_ = document.getElementById("n2");
-let num3 = document.getElementById("n3");
-EventList(num1);
 let num2 = document.getElementById("n2");
-let oper = document.getElementById("op");
-const messageElement = document.getElementById("message");
+// let num3 = document.getElementById("n3") as HTMLButtonElement;
+let oper = document.getElementById("n+");
+// let num2_ = document.getElementById("n2") as HTMLButtonElement;
+// let num3 = document.getElementById("n3") as HTMLButtonElement;
+EventList(num1);
+const messageElement = document.getElementById("display");
 const wrongnum = document.getElementById("wrong_num");
 const btn = document.getElementById("btn1");
 const nxt = document.getElementById("btn2");
@@ -13,6 +14,7 @@ let numero1 = parseFloat(num1.value);
 let numero2 = parseFloat(num2.value);
 let operand = oper.value;
 const tests = ["+", "-", "*", "/"];
+printres(8);
 btn.addEventListener("click", () => {
     if (Number.isNaN(numero1) || Number.isNaN(numero2)) {
         const msg2 = "Please enter a real number!";

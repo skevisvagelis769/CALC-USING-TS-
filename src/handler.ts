@@ -1,13 +1,16 @@
+import { isMarkedAsUntransferable } from "worker_threads";
 import { addition,multi,diff,div } from "./calc.js";
     let num1 = document.getElementById("n1") as HTMLButtonElement;
-    let num2_ = document.getElementById("n2") as HTMLButtonElement;
-    let num3 = document.getElementById("n3") as HTMLButtonElement;
+    let num2 = document.getElementById("n2") as HTMLButtonElement;
+   // let num3 = document.getElementById("n3") as HTMLButtonElement;
+    let oper = document.getElementById("n+") as HTMLButtonElement;
+   // let num2_ = document.getElementById("n2") as HTMLButtonElement;
+   // let num3 = document.getElementById("n3") as HTMLButtonElement;
     EventList(num1)
     
     
-    let num2 = document.getElementById("n2") as HTMLInputElement;
-    let oper = document.getElementById("op") as HTMLInputElement;
-    const messageElement = document.getElementById("message") as HTMLParagraphElement;
+    
+    const messageElement = document.getElementById("display") as HTMLTextAreaElement;
     const wrongnum = document.getElementById("wrong_num") as HTMLInputElement
     const btn = document.getElementById("btn1") as HTMLButtonElement;
     const nxt = document.getElementById("btn2") as HTMLButtonElement;
@@ -16,7 +19,7 @@ import { addition,multi,diff,div } from "./calc.js";
     let numero2:number = parseFloat(num2.value)
     let operand = oper.value
     const tests:string [] =["+","-","*","/"]
-    
+    printres(8)
     btn.addEventListener("click", () => {
         if( Number.isNaN(numero1) || Number.isNaN(numero2) ){
             const msg2: string = "Please enter a real number!"

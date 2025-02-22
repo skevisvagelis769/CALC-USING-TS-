@@ -1,3 +1,6 @@
 body{
-    background-color: grey;
+    background-color: white;
+    
+    text-align: center;
+    div.text-box { height:30px;width: 200px;max-width: 200px;padding: 4px; border: 1px solid gray; margin-left:auto;margin-right: auto;text-align: right;} 
 }
