@@ -1,0 +1,228 @@
+import { isMarkedAsUntransferable } from "worker_threads";
+import { addition,multi,diff,div } from "./calc.js";
+import { parse } from "path";
+import { once } from "events";
+import { get } from "http";
+
+    let num1 = document.getElementById("n1") as HTMLButtonElement;
+    let num2 = document.getElementById("n2") as HTMLButtonElement;
+    let num3 = document.getElementById("n3") as HTMLButtonElement;
+    let op_plus = document.getElementById("n+") as HTMLButtonElement;
+    let num4 = document.getElementById("n4") as HTMLButtonElement;
+    let num5 = document.getElementById("n5") as HTMLButtonElement;
+    let num6 = document.getElementById("n6") as HTMLButtonElement;
+    let op_minus = document.getElementById("n-") as HTMLButtonElement;
+    let num7 = document.getElementById("n7") as HTMLButtonElement;
+    let num8 = document.getElementById("n7") as HTMLButtonElement;
+    let num9 = document.getElementById("n7") as HTMLButtonElement;
+    let op_multi = document.getElementById("n7") as HTMLButtonElement;
+    let oper = document.getElementById("n7") as HTMLButtonElement;
+    let num0 = document.getElementById("n7") as HTMLButtonElement;
+    let op_div = document.getElementById("n7") as HTMLButtonElement;
+    let oper_val:HTMLInputElement[] = []
+    let number1_val:HTMLInputElement[]=[]
+    let number2_val:HTMLInputElement[]=[] 
+    let num1_:number =0
+    let num2_:number=0
+    //EventList(num1)
+    let display = document.getElementById("display") as HTMLInputElement
+    const equals = document.getElementById("n=") as HTMLButtonElement
+    let operands = document.getElementsByClassName("oper")
+    let number1 = document.getElementsByClassName("btn")
+    let number2 = document.getElementsByClassName("btn")
+   console.log(number1)
+let ReadyforSec:boolean = false
+let curnum =0
+let prevnum = 0
+let opert: string | null = null
+if(number1!=null){
+    
+    for(let i = 0;i<10;i++){
+        number1_val[i] = number1[i] as HTMLInputElement
+        number1_val[i].addEventListener('click',()=>{
+            console.log("in event")
+            let clickedVal = parseFloat(number1_val[i].value)
+           if(!ReadyforSec){
+            curnum = clickedVal + prevnum *10
+            printres(curnum)
+            prevnum = curnum
+            num1_=curnum
+           }else{
+            num2_=num2_*10+clickedVal
+            printres(num2_)
+           }
+           
+        })
+    }
+}
+if(operands){
+    for(let i=0;i<5;i++){
+        const operval = operands[i] as HTMLInputElement 
+        operval.addEventListener("click",()=>{
+            opert = operval.value
+            ReadyforSec = true
+            prevnum = 0
+            curnum = 0
+        })
+            
+        
+    }
+}
+
+
+   
+
+
+   
+   
+    
+
+
+        
+       
+   
+    
+   // const messageElement = document.getElementById("display") as HTMLTextAreaElement;
+    const wrongnum = document.getElementById("wrong_num") as HTMLInputElement
+    const btn = document.getElementById("btn1") as HTMLButtonElement;
+    const nxt = document.getElementById("btn2") as HTMLButtonElement;
+    let numero1:number = parseFloat(num1.value)
+    
+    let numero2:number = parseFloat(num2.value)
+    let operand = oper.value
+    const tests:string [] =["+","-","*","/"]
+   
+    btn.addEventListener("click", () => {
+        if( Number.isNaN(numero1) || Number.isNaN(numero2) ){
+            const msg2: string = "Please enter a real number!"
+            wrongnum.textContent=msg2;
+        }
+       let res=0;
+        console.log(operand);
+        switch(operand){
+            case "+":{
+                res=addition(numero1,numero2);
+                printres(res)   
+                break;
+            }
+            case "-":{
+                res=diff(numero1,numero2);
+                printres(res)   
+                break;
+            }
+            case "*":{
+                res=multi(numero1,numero2);
+                printres(res)
+                break;
+            }
+            case "/":{
+                if(numero2!= 0){
+                    res=div(numero1,numero2)
+                    printres(res)
+                }else{
+                    const msg3: string = "Nothing is divisible by 0!"
+                    wrongnum.textContent=msg3;  
+                }
+                break;
+            }
+            default:{
+                const wrongop = document.getElementById("wrong_op") as HTMLInputElement
+                const msg1: string = "Wrong Operation!"
+                wrongop.textContent = msg1;
+                
+            } 
+        }
+    });
+    nxt.addEventListener('click',() => {
+        wait(1)
+    })
+//=====================================================================FUNCS=====================================================================
+    
+//function appendToDisplay(input:string | number){
+  //  display.value += input
+//}
+function opHasRun(){
+    (window as any).flag=1
+    console.log("Op has run! =",(window as any).flag)
+}
+function getnum2(a:any){
+   
+   (window as any).finalnum2=a
+   //console.log("Num 2 is",a)
+    
+}
+function EventList(val:any){
+        val.addEventListener("click", () =>{
+            console.log(val.value)
+           
+        })
+        
+    }
+    function retList(val:number):number{
+        return val
+    }
+    function clearScn(a:string | null){
+        messageElement.textContent = a
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     //if(number1){
+        let curnum=0
+        let prevnum=0
+        for(let i=0;i<number1.length;i++){
+            number1_val[i] = number1[i] as HTMLInputElement
+            number1_val[i].addEventListener('click',e=>{
+                console.log("in event")
+                num1_ = parseFloat(number1_val[i].value)
+                curnum=prevnum*10+num1_
+                printres(curnum)
+
+                prevnum = curnum
+            })
+        }
+    //}
+    if(operands){
+        for(let i=0;i<operands.length; i++){
+            oper_val[i] = operands[i] as HTMLInputElement
+            oper_val[i].addEventListener('click', ()=>{
+            //console.lo(operands)
+                console.log("Input operand = ",oper_val[i].value)
+            })
+        }
+    }  
